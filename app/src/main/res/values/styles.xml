@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ToggleButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:backgroundTint">#000000</item>
+        <item name="android:textColor">#FFFFFF</item> <!-- Optional -->
+        <item name="android:radius">10dp</item>
+    </style>
+
+    <style name="GetStartedButton" parent="Widget.AppCompat.Button">
+        <item name="android:backgroundTint">#000000</item>
+        <item name="android:textColor">#FFFFFF</item> <!-- Optional -->
+        <item name="android:radius">8dp</item>
+    </style>
+
+    <!-- Custom Checkbox Style -->
+    <style name="CustomCheckboxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/custom_checkbox</item>
+    </style>
+
+    <style name="RoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+    <style name="CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

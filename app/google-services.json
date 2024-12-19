@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "388268920134",
+    "project_id": "wmp-project-b2801",
+    "storage_bucket": "wmp-project-b2801.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388268920134:android:688eb784962472e17de947",
+        "android_client_info": {
+          "package_name": "com.project.wmpproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNsdK499OvjeQ3_KbpE4he6B3JZdlojbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
