@@ -35,7 +35,7 @@ import java.util.Locale;
 public class EditEventActivity extends AppCompatActivity {
 
     // These are the parts of the screen that the user interacts with
-    private TextInputEditText titleEditText, descriptionEditText, locationEditText; // Fields to enter event details
+    private TextInputEditText titleEditText, descriptionEditText, locationEditText, attendanceLimitEditText; // Fields to enter event details
     private ImageView eventImageView; // To display the event image
     private Button saveChangesButton; // Button to save changes
     // Tool for interacting with the database
@@ -74,6 +74,7 @@ public class EditEventActivity extends AppCompatActivity {
         descriptionEditText = findViewById(R.id.editEventDescription);
         dateEditText = findViewById(R.id.addEventDate);
         timeEditText = findViewById(R.id.addEventTime);
+        attendanceLimitEditText = findViewById(R.id.editEventAttendanceLimit);
         locationEditText = findViewById(R.id.editEventLocation);
         eventImageView = findViewById(R.id.editEventImage);
         saveChangesButton = findViewById(R.id.saveChangesButton);
@@ -188,6 +189,7 @@ public class EditEventActivity extends AppCompatActivity {
         titleEditText.setText(event.getTitle());
         descriptionEditText.setText(event.getDescription());
         locationEditText.setText(event.getLocation());
+        attendanceLimitEditText.setText(String.valueOf(event.getAttendanceLimit()));
 
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
@@ -225,7 +227,9 @@ public class EditEventActivity extends AppCompatActivity {
                             String dateTime = dateEditText.getText().toString() + "T" + timeEditText.getText().toString();
                             String location = locationEditText.getText().toString();
 
-                            Event updatedEvent = new Event(title, description, dateTime, location, imageUrl, eventId);
+                            int attendanceLimit = Integer.parseInt(attendanceLimitEditText.getText().toString());
+
+                            Event updatedEvent = new Event(title, description, dateTime, location, imageUrl, eventId, attendanceLimit);
 
                             // Update the event in Firestore
                             db.collection("events").document(eventId)
@@ -255,11 +259,12 @@ public class EditEventActivity extends AppCompatActivity {
         String description = descriptionEditText.getText().toString();
         String dateTime = dateEditText.getText().toString() + "T" + timeEditText.getText().toString();
         String location = locationEditText.getText().toString();
+        int attendanceLimit = Integer.parseInt(attendanceLimitEditText.getText().toString());
         // Use the existing image URL
         String imageUrl = prevImageUrl;
 
         // Create a new Event object with the updated details
-        Event updatedEvent = new Event(title, description, dateTime, location, imageUrl, eventId);
+        Event updatedEvent = new Event(title, description, dateTime, location, imageUrl, eventId, attendanceLimit);
 
         // Update the event in Firestore
         db.collection("events").document(eventId)

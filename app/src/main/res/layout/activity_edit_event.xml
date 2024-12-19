@@ -81,7 +81,7 @@
             app:boxStrokeColor="#bb86fc"
             app:hintTextColor="#bb86fc"
             app:endIconMode="custom"
-            app:endIconDrawable="@drawable/ic_calendar"
+            app:endIconDrawable="@drawable/ic_clock"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -110,6 +110,24 @@
                 android:layout_height="wrap_content"
                 android:hint="Event Location"
                 android:inputType="text"
+                android:textColor="#E0E0E0" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="#1e1e1e"
+            app:boxStrokeColor="#bb86fc"
+            app:hintTextColor="#bb86fc"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editEventAttendanceLimit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Attendance Limit"
+                android:inputType="number"
                 android:textColor="#E0E0E0" />
         </com.google.android.material.textfield.TextInputLayout>
 

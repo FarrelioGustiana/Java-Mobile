@@ -34,7 +34,7 @@ import java.util.UUID;
 public class AddEventActivity extends AppCompatActivity {
 
     // These are the parts of the screen that the user interacts with
-    private EditText titleEditText, descriptionEditText, locationEditText; // Fields to enter event details
+    private EditText titleEditText, descriptionEditText, locationEditText, attendanceLimitEditText;; // Fields to enter event details
     private ImageView eventImageView; // To display the selected image
     private Button addButton; // Button to add the event
     // Tool for interacting with the database
@@ -68,6 +68,7 @@ public class AddEventActivity extends AppCompatActivity {
         descriptionEditText = findViewById(R.id.addEventDescription);
         dateEditText = findViewById(R.id.addEventDate);
         timeEditText = findViewById(R.id.addEventTime);
+        attendanceLimitEditText = findViewById(R.id.addEventAttendanceLimit);
         locationEditText = findViewById(R.id.addEventLocation);
         eventImageView = findViewById(R.id.addEventImage);
         addButton = findViewById(R.id.addEventButton);
@@ -200,9 +201,10 @@ public class AddEventActivity extends AppCompatActivity {
 
         // Generate a unique ID for the event
         String eventId = UUID.randomUUID().toString();
+        int attendanceLimit = Integer.parseInt(attendanceLimitEditText.getText().toString());
 
         // Create a new Event object with the details
-        Event newEvent = new Event(title, description, dateTime, location, imageUrl, eventId);
+        Event newEvent = new Event(title, description, dateTime, location, imageUrl, eventId, attendanceLimit);
 
         // Add the event to the "events" collection in Firestore
         db.collection("events")
